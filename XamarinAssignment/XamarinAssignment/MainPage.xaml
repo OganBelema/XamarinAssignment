@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamarinAssignment"
+             x:Class="XamarinAssignment.MainPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                    iOS="0,0,0,0"
+                    Android="16,16,16,16"/>
+    </ContentPage.Padding>
+
+    <StackLayout>
+        <StackLayout.Margin>
+            <OnPlatform x:TypeArguments="Thickness"
+                        iOS="0,0,0,0"
+                        Android="0.16,0,0"/>
+        </StackLayout.Margin>
+        
+        <Button HorizontalOptions="Center"
+                x:Name="next_button"
+                Text="Next"/>
+
+        <Label x:Name="font_size"  
+               
+                Text="{Binding Source= {x:Reference slider}, 
+            Path=Value, 
+            StringFormat='Font Size: {0:F0}'}" />
+        
+        <Slider x:Name="slider"
+                Maximum="50"
+                Minimum="16"/>
+        
+        <Label BindingContext="{x:Reference slider}"
+            x:Name="quote"
+            FontSize="{Binding Value}"
+            Text="Hello Belema"/>
+
+    </StackLayout>
+
+</ContentPage>
